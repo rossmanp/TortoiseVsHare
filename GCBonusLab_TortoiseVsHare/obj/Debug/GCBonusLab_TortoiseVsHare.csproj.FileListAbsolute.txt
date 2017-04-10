@@ -1,0 +1,6 @@
+c:\users\peter\onedrive\documents\visual studio 2015\Projects\GCBonusLab_TortoiseVsHare\GCBonusLab_TortoiseVsHare\bin\Debug\GCBonusLab_TortoiseVsHare.exe.config
+c:\users\peter\onedrive\documents\visual studio 2015\Projects\GCBonusLab_TortoiseVsHare\GCBonusLab_TortoiseVsHare\bin\Debug\GCBonusLab_TortoiseVsHare.exe
+c:\users\peter\onedrive\documents\visual studio 2015\Projects\GCBonusLab_TortoiseVsHare\GCBonusLab_TortoiseVsHare\bin\Debug\GCBonusLab_TortoiseVsHare.pdb
+c:\users\peter\onedrive\documents\visual studio 2015\Projects\GCBonusLab_TortoiseVsHare\GCBonusLab_TortoiseVsHare\obj\Debug\GCBonusLab_TortoiseVsHare.csprojResolveAssemblyReference.cache
+c:\users\peter\onedrive\documents\visual studio 2015\Projects\GCBonusLab_TortoiseVsHare\GCBonusLab_TortoiseVsHare\obj\Debug\GCBonusLab_TortoiseVsHare.exe
+c:\users\peter\onedrive\documents\visual studio 2015\Projects\GCBonusLab_TortoiseVsHare\GCBonusLab_TortoiseVsHare\obj\Debug\GCBonusLab_TortoiseVsHare.pdb
