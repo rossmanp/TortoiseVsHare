@@ -11,17 +11,17 @@ namespace GCBonusLab_TortoiseVsHare
         static void Main(string[] args)
         {
             ThreadRunner race = new ThreadRunner();
-            ThreadRunner tortoise = new ThreadRunner("Tortoise", 100, 10);
-            ThreadRunner hare = new ThreadRunner("Hare", 10, 100);
+            List<Runner> entrants = new List<Runner>();
+            entrants = Runner.Entrants();
             Console.WriteLine("The tortoise and hare are having a race!");
-            bool DidTortoiseWin = race.Run(tortoise, hare);
-            if (DidTortoiseWin == true)
+            bool run = true;
+            while (run)
             {
-                Console.WriteLine("Tortoise wins!");
-            }
-            else
-            {
-                Console.WriteLine("Hare wins!");
+                foreach (Runner r in entrants)
+                {
+                    race.Run(r);
+                }
+                run = race.FindWinner(entrants);
             }
             Console.ReadLine();
         }

@@ -7,11 +7,7 @@ using System.Threading;
 namespace GCBonusLab_TortoiseVsHare
 {
     public class ThreadRunner
-    {
-        public string _name { get; private set; }
-        public int _move { get; private set; }
-        public int _speed { get; private set; }
-        private int _distance = 0;
+    {      
         Random rnd = new Random();
 
         public ThreadRunner()
@@ -19,43 +15,51 @@ namespace GCBonusLab_TortoiseVsHare
 
         }
 
-        public ThreadRunner(string name, int move, int speed)
+        public void Run(Runner racer)
         {
-            this._name = name;
-            this._move = move;
-            this._speed = speed;           
+            int chance = rnd.Next(1, 101);
+            int trip = rnd.Next(1, 101);
+            if (chance <= racer._move)
+                {
+                    racer._distance += racer._speed;
+                    Console.WriteLine(racer._name + ": " + racer._distance);
+                    Trip(racer);
+                }  
+            if (racer._tripped == 1)
+            {
+                racer._speed *= 2;
+            }     
+            if (racer._tripped > 0)
+                {
+                    racer._tripped--;
+                }                        
+            Thread.Sleep(100);                         
         }
 
-        public bool Run(ThreadRunner tortoise, ThreadRunner hare)
+        public void Trip(Runner racer)
         {
-            int chance = 0;
-            for (int i = 1; tortoise._distance < 1000; i++)
+            int stumble = rnd.Next(1, 101);
+            if (stumble <= racer._tripChance && racer._tripped == 0)
             {
-                chance = rnd.Next(1, 101);
-                if (chance <= tortoise._move)
-                {
-                    tortoise._distance += tortoise._speed;
-                }
-                if (chance <= hare._move)
-                {
-                    hare._distance += hare._speed;
-                }              
-                Console.WriteLine("\nThe tortoise has moved " + tortoise._distance + " meters and the hare has moved " + hare._distance + " meters.");
-                Thread.Sleep(100);
-                if (hare._distance >= 1000)
-                {
-                    break;
-                }
+                Console.WriteLine(racer._name + " tripped!");
+                racer._tripped = 5;
+                racer._speed /= 2;
             }
-            if (tortoise._distance >= 1000)
+        }
+
+        public bool FindWinner (List<Runner> entrants)
+        {
+            int index = entrants.FindIndex(s => s._distance >= 1000);
+            if (index >= 0)
             {
-                return true;
+                Console.WriteLine(entrants[index]._name + " won!");
+                return false;                                      
             }
             else
             {
-                return false;
-            }
-
+                return true;
+            }                            
         }
+        
     }
 }
